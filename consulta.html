@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consulta de Trámite - Sanatorio Mayo</title>
+<title>Consulta de Asistencia - Sanatorio Mayo</title>
 
 <style>
 *{
@@ -22,7 +22,7 @@ header{
 background:white;
 padding:20px 40px;
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
@@ -47,7 +47,7 @@ color:white;
 }
 
 .hero h1{
-font-size:45px;
+font-size:42px;
 }
 
 .container{
@@ -85,10 +85,7 @@ padding:15px 30px;
 border-radius:8px;
 cursor:pointer;
 font-size:16px;
-}
-
-button:hover{
-opacity:.9;
+width:100%;
 }
 
 .resultado{
@@ -117,43 +114,42 @@ padding:20px;
 <body>
 
 <header>
-<div class="logo">SM Sanatorio Mayo</div>
+<div class="logo">SM SANATORIO MAYO</div>
 </header>
 
 <section class="hero">
 <div>
-<h1>Consulta de Trámite</h1>
-<p>Ingrese el código para consultar el estado.</p>
+<h1>Consulta de Asistencia</h1>
+<p>Ingrese su DNI para verificar la atención.</p>
 </div>
 </section>
 
 <div class="container">
-
 <div class="card">
 
-<h2>Buscar trámite</h2>
+<h2>Consultar asistencia</h2>
 
 <input
 type="text"
 id="codigo"
-placeholder="Ingrese código de trámite">
+placeholder="Ingrese DNI">
 
 <button onclick="consultar()">
-Consultar
+CONSULTAR
 </button>
 
 <div id="resultado" class="resultado">
 
-<p><strong>Código:</strong> <span id="cod"></span></p>
+<p><strong>Paciente:</strong> <span id="nombre"></span></p>
+<p><strong>DNI:</strong> <span id="cod"></span></p>
 <p><strong>Estado:</strong> <span id="estado"></span></p>
-<p><strong>Fecha de registro:</strong> <span id="fecha"></span></p>
-<p><strong>Sede:</strong> <span id="sede"></span></p>
+<p><strong>Fecha:</strong> <span id="fecha"></span></p>
+<p><strong>Lugar:</strong> <span id="sede"></span></p>
 <p><strong>Observación:</strong> <span id="obs"></span></p>
 
 </div>
 
 </div>
-
 </div>
 
 <footer>
@@ -164,25 +160,28 @@ Consultar
 
 const tramites = {
 
-"TRAMITE001":{
-estado:"Completado",
-fecha:"02/06/2026",
-sede:"Sede Central",
-obs:"Trámite procesado correctamente."
+"30123456":{
+nombre:"Juan Pérez",
+estado:"ASISTIÓ",
+fecha:"15/05/2026",
+sede:"Sanatorio Mayo",
+obs:"Paciente presente en la consulta."
 },
 
-"TRAMITE002":{
-estado:"En revisión",
-fecha:"04/06/2026",
-sede:"Córdoba Centro",
-obs:"Pendiente de validación."
+"28999888":{
+nombre:"María Gómez",
+estado:"ASISTIÓ",
+fecha:"20/05/2026",
+sede:"Consultorios Externos",
+obs:"Control médico realizado."
 },
 
-"TRAMITE003":{
-estado:"Aprobado",
-fecha:"06/06/2026",
-sede:"Sucursal Norte",
-obs:"Registro actualizado."
+"33444555":{
+nombre:"Carlos Díaz",
+estado:"NO ASISTIÓ",
+fecha:"22/05/2026",
+sede:"Sanatorio Mayo",
+obs:"Paciente ausente."
 }
 
 };
@@ -190,15 +189,14 @@ obs:"Registro actualizado."
 function consultar(){
 
 let codigo =
-document.getElementById("codigo")
-.value
-.toUpperCase();
+document.getElementById("codigo").value.trim();
 
 let resultado =
 document.getElementById("resultado");
 
 if(tramites[codigo]){
 
+document.getElementById("nombre").innerText=tramites[codigo].nombre;
 document.getElementById("cod").innerText=codigo;
 document.getElementById("estado").innerText=tramites[codigo].estado;
 document.getElementById("fecha").innerText=tramites[codigo].fecha;
@@ -209,7 +207,7 @@ resultado.style.display="block";
 
 }else{
 
-alert("Código no encontrado");
+alert("DNI no encontrado");
 
 }
 
