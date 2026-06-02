@@ -20,21 +20,13 @@ background:#f5f7fa;
 
 header{
 background:white;
-padding:20px 40px;
-display:flex;
-justify-content:center;
-align-items:center;
+padding:20px;
+text-align:center;
 box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
-.logo{
-font-size:30px;
-font-weight:bold;
-color:#006d77;
-}
-
 .hero{
-height:300px;
+height:250px;
 background:linear-gradient(rgba(0,90,120,.6),rgba(0,90,120,.6)),
 url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80');
 background-size:cover;
@@ -47,12 +39,12 @@ color:white;
 }
 
 .hero h1{
-font-size:42px;
+font-size:40px;
 }
 
 .container{
 max-width:700px;
-margin:-50px auto 50px auto;
+margin:-40px auto 50px auto;
 padding:20px;
 }
 
@@ -81,24 +73,47 @@ button{
 background:#006d77;
 color:white;
 border:none;
-padding:15px 30px;
+padding:15px;
 border-radius:8px;
 cursor:pointer;
 font-size:16px;
 width:100%;
+margin-bottom:10px;
 }
 
 .resultado{
 display:none;
-margin-top:25px;
+margin-top:20px;
 padding:20px;
 background:#eef8fa;
-border-left:5px solid #006d77;
-border-radius:8px;
+border-radius:10px;
+}
+
+.banner-ok{
+background:#28a745;
+color:white;
+padding:15px;
+font-size:24px;
+font-weight:bold;
+text-align:center;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.banner-no{
+background:#dc3545;
+color:white;
+padding:15px;
+font-size:24px;
+font-weight:bold;
+text-align:center;
+border-radius:10px;
+margin-bottom:20px;
 }
 
 .resultado p{
 margin:10px 0;
+font-size:16px;
 }
 
 footer{
@@ -114,9 +129,9 @@ padding:20px;
 <body>
 
 <header>
-<div class="logo">
-<img src="mayo.jfif" alt="Sanatorio Mayo" style="height:90px;">
-</div>
+<img src="https://sanatoriomayo.github.io/verificaci-n-web/mayo.jfif"
+alt="Sanatorio Mayo"
+style="max-height:120px;">
 </header>
 
 <section class="hero">
@@ -141,6 +156,8 @@ CONSULTAR
 </button>
 
 <div id="resultado" class="resultado">
+
+<div id="estadoBanner"></div>
 
 <p><strong>Paciente:</strong> <span id="nombre"></span></p>
 <p><strong>DNI:</strong> <span id="cod"></span></p>
@@ -190,11 +207,8 @@ obs:"Paciente ausente."
 
 function consultar(){
 
-let codigo =
-document.getElementById("codigo").value.trim();
-
-let resultado =
-document.getElementById("resultado");
+let codigo=document.getElementById("codigo").value.trim();
+let resultado=document.getElementById("resultado");
 
 if(tramites[codigo]){
 
@@ -204,6 +218,16 @@ document.getElementById("estado").innerText=tramites[codigo].estado;
 document.getElementById("fecha").innerText=tramites[codigo].fecha;
 document.getElementById("sede").innerText=tramites[codigo].sede;
 document.getElementById("obs").innerText=tramites[codigo].obs;
+
+let banner=document.getElementById("estadoBanner");
+
+if(tramites[codigo].estado==="ASISTIÓ"){
+banner.className="banner-ok";
+banner.innerHTML="✅ ASISTIÓ";
+}else{
+banner.className="banner-no";
+banner.innerHTML="❌ NO ASISTIÓ";
+}
 
 resultado.style.display="block";
 
@@ -219,3 +243,4 @@ alert("DNI no encontrado");
 
 </body>
 </html>
+
