@@ -1,109 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sanatorio Mayo</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
 body{
-background:#f5f7fa;
+margin:0;
+font-family:Arial,sans-serif;
 }
 
 header{
-background:#fff;
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+background:white;
+padding:20px;
+text-align:center;
 box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-
-.logo{
-font-size:32px;
-font-weight:bold;
-color:#006d77;
-}
-
-nav a{
-text-decoration:none;
-margin-left:20px;
-color:#003366;
-font-weight:bold;
 }
 
 .hero{
 height:500px;
-background:linear-gradient(rgba(0,80,120,.5),rgba(0,80,120,.5)),
-url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80');
+background:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80');
 background-size:cover;
 background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
+}
+
+.hero-content{
+background:rgba(0,0,0,.5);
+padding:30px;
+border-radius:10px;
 text-align:center;
 color:white;
 }
 
-.hero-content h1{
-font-size:55px;
-margin-bottom:15px;
-}
-
-.hero-content p{
-font-size:22px;
-}
-
-.servicios{
-padding:60px 20px;
-text-align:center;
-}
-
-.servicios h2{
-margin-bottom:40px;
-color:#003366;
-}
-
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.card{
-background:white;
-width:280px;
-padding:25px;
-border-radius:12px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-.card h3{
-color:#006d77;
-margin-bottom:10px;
-}
-
-.contacto{
+.btn{
+display:inline-block;
+padding:15px 30px;
 background:#006d77;
 color:white;
-padding:50px;
-text-align:center;
+text-decoration:none;
+border-radius:8px;
+margin-top:15px;
 }
 
 footer{
 background:#003366;
 color:white;
-text-align:center;
 padding:20px;
+text-align:center;
 }
 </style>
 </head>
@@ -111,59 +58,23 @@ padding:20px;
 <body>
 
 <header>
-<div class="logo">SM Sanatorio Mayo</div>
-
-<nav>
-<a href="#">Inicio</a>
-<a href="#">Servicios</a>
-<a href="#">Turnos</a>
-<a href="#">Contacto</a>
-</nav>
+<h1>SANATORIO MAYO</h1>
 </header>
 
 <section class="hero">
 <div class="hero-content">
-<h1>Cuidamos tu salud</h1>
-<p>Atención médica integral con profesionales especializados.</p>
-</div>
-</section>
+<h2>Validación de Pacientes</h2>
+<p>Consulta asistencia mediante DNI.</p>
 
-<section class="servicios">
-<h2>Nuestros Servicios</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Clínica Médica</h3>
-<p>Atención integral para toda la familia.</p>
-</div>
-
-<div class="card">
-<h3>Cardiología</h3>
-<p>Diagnóstico y seguimiento especializado.</p>
-</div>
-
-<div class="card">
-<h3>Laboratorio</h3>
-<p>Análisis clínicos y estudios complementarios.</p>
-</div>
-
-<div class="card">
-<h3>Diagnóstico</h3>
-<p>Equipamiento moderno para estudios médicos.</p>
-</div>
+<a class="btn" href="consulta.html">
+VALIDAR PACIENTE
+</a>
 
 </div>
-</section>
-
-<section class="contacto">
-<h2>Contacto</h2>
-<p>Teléfono: 0810-000-0000</p>
-<p>Email: info@sanatoriomayo.com</p>
 </section>
 
 <footer>
-© 2026 Sanatorio Mayo - Sitio de demostración
+© 2026 Sanatorio Mayo
 </footer>
 
 </body>
